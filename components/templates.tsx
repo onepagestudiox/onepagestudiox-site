@@ -120,7 +120,7 @@ export function Templates() {
 
                 {/* Category Tabs */}
                 <div className="space-y-2">
-                  {templateCategories.map((category, index) => (
+                  {templateCategories.map((category) => (
                     <button
                       key={category.name}
                       onClick={() => handleCategoryChange(category.name)}
@@ -213,12 +213,12 @@ export function Templates() {
           <div className="text-center mt-20">
             <div className="max-w-4xl mx-auto">
               <h3 className="text-2xl font-bold text-foreground mb-6">
-                Can't Find the Perfect Template?
+                Can&apos;t Find the Perfect Template?
               </h3>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
                 We can create a custom template tailored specifically to your
-                industry and brand. Let's discuss your unique needs and create
-                something perfect for your business.
+                industry and brand. Let&apos;s discuss your unique needs and
+                create something perfect for your business.
               </p>
 
               <a

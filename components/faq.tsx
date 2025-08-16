@@ -138,7 +138,7 @@ export function FAQ() {
                   {/* <div className="absolute left-[22px] top-8 bottom-7 w-px bg-border" /> */}
 
                   <div className="space-y-2">
-                    {categories.map((category, index) => (
+                    {categories.map((category) => (
                       <button
                         key={category}
                         onClick={() => handleCategoryChange(category)}
