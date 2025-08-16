@@ -50,6 +50,10 @@ export function Navigation() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav
       className={cn(
@@ -149,6 +153,7 @@ export function Navigation() {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={closeMobileMenu}
                   className={cn(
                     "block w-full text-left px-4 py-4 text-base font-medium transition-colors duration-200 rounded-lg cursor-pointer",
                     isActive
@@ -165,6 +170,7 @@ export function Navigation() {
             <div className="px-4 pt-4 pb-6">
               <a
                 href="#contact"
+                onClick={closeMobileMenu}
                 className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-6 py-3 cursor-pointer"
               >
                 Get Started

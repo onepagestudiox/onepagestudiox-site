@@ -54,26 +54,23 @@ export function Process() {
             </p>
           </div>
 
-          {/* Process Steps Grid */}
+          {/* Process Steps Grid - Original Simple Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
             {processSteps.map((step) => (
               <div
                 key={step.number}
                 className={cn(
                   "group relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-5 sm:p-6 lg:p-7",
-                  "shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]",
-                  "hover:border-primary/30 hover:bg-card/80",
-                  "before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-br before:from-primary/5 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500",
-                  "group-hover:before:opacity-100"
+                  "shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]",
+                  "hover:border-primary/30 hover:bg-card/80"
                 )}
               >
-                {/* Step Number with enhanced styling */}
+                {/* Step Number with subtle enhancement */}
                 <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 mb-4 sm:mb-5">
                   <div className="relative flex-shrink-0 self-start">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground rounded-xl flex items-center justify-center font-bold text-base sm:text-lg shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110">
                       {step.number}
                     </div>
-                    <div className="absolute -inset-1 bg-gradient-to-br from-primary/20 to-primary/10 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div className="flex-1 sm:pt-1">
                     <h3 className="text-base sm:text-lg lg:text-xl xl:text-2xl font-bold text-foreground mb-2 sm:mb-3 leading-tight group-hover:text-primary transition-colors duration-300">
@@ -82,15 +79,122 @@ export function Process() {
                   </div>
                 </div>
 
-                {/* Step Description with enhanced typography */}
+                {/* Step Description with H4 tag for better SEO */}
                 <div className="sm:ml-16 lg:ml-18">
+                  <h4 className="sr-only">Step {step.number} Details</h4>
                   <p className="text-muted-foreground leading-relaxed text-sm sm:text-base group-hover:text-foreground/80 transition-colors duration-300">
                     {step.description}
                   </p>
                 </div>
 
-                {/* Decorative corner element */}
-                <div className="absolute top-3 right-3 w-5 h-5 sm:w-6 sm:h-6 border-t-2 border-r-2 border-primary/20 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Key Benefits with H5 tags for better SEO structure */}
+                <div className="sm:ml-16 lg:ml-18 mt-4">
+                  <h5 className="text-xs font-semibold text-primary/80 uppercase tracking-wide mb-2">
+                    Key Benefits
+                  </h5>
+                  <ul className="space-y-1">
+                    {step.number === "1" && (
+                      <>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Curated selection of professional templates
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Tailored for small businesses
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Expert guidance in template selection
+                          </span>
+                        </li>
+                      </>
+                    )}
+                    {step.number === "2" && (
+                      <>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Simple content checklist provided
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            No jargon or technical overwhelm
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Content cleanup and rewriting assistance
+                          </span>
+                        </li>
+                      </>
+                    )}
+                    {step.number === "3" && (
+                      <>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Professional team builds your site
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Brand colors and fonts integrated
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Mobile and desktop optimized
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Preview and revision included
+                          </span>
+                        </li>
+                      </>
+                    )}
+                    {step.number === "4" && (
+                      <>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            5 business days or less delivery
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            Domain connection included
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            48-hour delivery available as add-on
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
+                          <span className="text-xs text-foreground/80 leading-relaxed">
+                            We handle all technical aspects
+                          </span>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>

@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "OnePageStudioX - Professional Websites in 5 Days",
+    title: "Fast Professional Websites - OnePageStudioX",
     description:
       "Get your professional website up and running in just 5 days. Choose a template, send your content, and go live with a clean, professional site.",
     url: "https://onepagestudiox.com",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "OnePageStudioX - Professional Websites in 5 Days",
+    title: "5-Day Website Service - OnePageStudioX",
     description:
       "Get your professional website up and running in just 5 days. Choose a template, send your content, and go live.",
   },
