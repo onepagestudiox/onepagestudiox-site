@@ -43,7 +43,7 @@ export function Process() {
           {/* Section Header */}
           <div className="text-center mb-12 sm:mb-16 lg:mb-20">
             <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              ⚡ Simple & Transparent
+              Simple & Transparent
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-6 sm:mb-8 leading-tight">
               How It Works

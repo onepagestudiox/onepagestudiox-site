@@ -113,7 +113,7 @@ export function FAQ() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              ❓ FAQ
+              FAQ
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
               Frequently Asked Questions

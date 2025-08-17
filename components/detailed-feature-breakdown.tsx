@@ -86,37 +86,31 @@ export function DetailedFeatureBreakdown() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
-                  icon: "📋",
                   title: "Pre-Made Template Selection",
                   description:
                     "Choose from our curated collection of professional templates designed for different industries. Each template is optimized for conversion and mobile responsiveness.",
                 },
                 {
-                  icon: "🎨",
                   title: "Brand Integration",
                   description:
                     "We'll integrate your logo, brand colors, fonts, and messaging throughout the site to create a cohesive brand experience that matches your business identity.",
                 },
                 {
-                  icon: "🌐",
                   title: "Custom Domain Setup",
                   description:
                     "Connect your existing domain or we'll help you purchase and configure a new one. Includes SSL certificate and proper DNS configuration for security.",
                 },
                 {
-                  icon: "📱",
                   title: "Mobile Optimization",
                   description:
                     "Your site will look and function perfectly on all devices - phones, tablets, and desktops. Fast loading times and intuitive navigation on every screen size.",
                 },
                 {
-                  icon: "✏️",
                   title: "Content Revisions",
                   description:
                     "Want to tweak text, photos, or layout after the first version? You get one full round of edits to make the site feel just right.",
                 },
                 {
-                  icon: "⚡",
                   title: "Fast Delivery",
                   description:
                     "Get your completed site live in just 5 business days (after receiving your content and domain access).",
@@ -126,11 +120,10 @@ export function DetailedFeatureBreakdown() {
                   key={index}
                   className="bg-card/30 backdrop-blur-sm border border-border/30 rounded-lg p-5"
                 >
-                  <h5 className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
-                    <span className="text-primary">{feature.icon}</span>
+                  <h5 className="text-base font-semibold text-foreground mb-2 text-left">
                     {feature.title}
                   </h5>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-left">
                     {feature.description}
                   </p>
                 </div>
@@ -152,37 +145,31 @@ export function DetailedFeatureBreakdown() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
-                  icon: "🔍",
                   title: "Basic SEO Setup",
                   description:
                     "Optimized page titles, meta descriptions, and image alt tags to help search engines understand and rank your site. Better visibility in Google search results.",
                 },
                 {
-                  icon: "📅",
                   title: "Appointment or Booking Integration",
                   description:
                     "Already using tools like Calendly, GlossGenius, or Square? We'll embed your booking link into your site. If you don't have one, we'll guide you in setting one up to streamline your appointments.",
                 },
                 {
-                  icon: "🔧",
                   title: "Post-Launch Support",
                   description:
                     "5 days of post-launch support to fix any issues, make small adjustments, or answer questions about your new website.",
                 },
                 {
-                  icon: "📱",
                   title: "Mobile Preview Optimization",
                   description:
                     "We go beyond basic responsiveness by manually adjusting layouts and spacing to ensure your site looks flawless on all popular mobile screen sizes.",
                 },
                 {
-                  icon: "🏢",
                   title: "Google Business Profile",
                   description:
                     "Setup or review your Google Business Profile to improve local search visibility and help customers find your business on Google Maps.",
                 },
                 {
-                  icon: "📊",
                   title: "Analytics & Reporting",
                   description:
                     "Google Analytics setup with 3 months of monthly reports showing visitor behavior, traffic sources, and insights to help grow your business.",
@@ -192,11 +179,10 @@ export function DetailedFeatureBreakdown() {
                   key={index}
                   className="bg-card/30 backdrop-blur-sm border border-border/30 rounded-lg p-5"
                 >
-                  <h5 className="text-base font-semibold text-foreground mb-2 flex items-center gap-2">
-                    <span className="text-primary">{feature.icon}</span>
+                  <h5 className="text-base font-semibold text-foreground mb-2 text-left">
                     {feature.title}
                   </h5>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-left">
                     {feature.description}
                   </p>
                 </div>

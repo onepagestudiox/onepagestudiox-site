@@ -12,7 +12,7 @@ export function Hero() {
         <div className="max-w-5xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8">
-            ✨ Professional websites in 5 days
+            Professional websites in 5 days
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-foreground mb-6 leading-tight">

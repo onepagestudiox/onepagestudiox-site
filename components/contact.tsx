@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { FaCheckSquare, FaLock } from "react-icons/fa";
+import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
 
 const templates = [
   "Modern Business",
@@ -117,7 +119,9 @@ export function Contact() {
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">✅</span>
+                    <span className="text-lg">
+                      <FaCheckSquare />
+                    </span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
@@ -130,7 +134,9 @@ export function Contact() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">🔒</span>
+                    <span className="text-lg">
+                      <FaLock />
+                    </span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">
@@ -143,7 +149,9 @@ export function Contact() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-lg">💬</span>
+                    <span className="text-lg">
+                      <IoChatbubbleEllipsesSharp />
+                    </span>
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">

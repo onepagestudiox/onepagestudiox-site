@@ -1,5 +1,9 @@
 import { cn } from "@/lib/utils";
 import { DetailedFeatureBreakdown } from "./detailed-feature-breakdown";
+import { IoDocumentSharp } from "react-icons/io5";
+import { HiBolt } from "react-icons/hi2";
+import { BsPencilFill } from "react-icons/bs";
+import { IoBarChartSharp } from "react-icons/io5";
 
 const plans = [
   {
@@ -38,22 +42,26 @@ const addOns = [
     name: "Extra Section",
     price: "$100",
     description: "Add testimonials, FAQs, pricing, or any additional section",
+    icon: <IoDocumentSharp />,
   },
   {
     name: "Priority Delivery",
     price: "$175",
     description: "Get your site delivered in 48 hours instead of 5 days",
+    icon: <HiBolt />,
   },
   {
     name: "Additional Revision",
     price: "$75",
     description: "One extra round of content revisions after delivery",
+    icon: <BsPencilFill />,
   },
   {
     name: "Extended Vistor Reports",
     price: "$50/month",
     description:
       "Keep receiving monthly visitor summaries after your included 3 months.",
+    icon: <IoBarChartSharp />,
   },
 ];
 
@@ -72,7 +80,7 @@ export function Pricing() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-              💰 Simple Pricing
+              Simple Pricing
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight">
               One-Time Fees, No Hidden Costs
@@ -168,9 +176,7 @@ export function Pricing() {
               >
                 {/* Decorative Icon */}
                 <div className="inline-flex items-center justify-center w-10 h-10 bg-primary/10 rounded-lg mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-lg">
-                    {["📄", "⚡", "✏️", "📊"][index]}
-                  </span>
+                  <div className="text-black">{addon.icon}</div>
                 </div>
 
                 <h4 className="text-base font-semibold text-foreground mb-2">
