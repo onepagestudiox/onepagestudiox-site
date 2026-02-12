@@ -11,7 +11,6 @@ export async function POST(request: NextRequest) {
       email,
       phone,
       businessName,
-      selectedTemplate,
       selectedPlan,
       businessDescription,
     } = body;
@@ -50,9 +49,6 @@ export async function POST(request: NextRequest) {
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #007bff; margin-top: 0;">Project Details</h3>
             <p><strong>Selected Plan:</strong> ${selectedPlan}</p>
-            <p><strong>Template Preference:</strong> ${
-              selectedTemplate || "No preference"
-            }</p>
           </div>
 
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">

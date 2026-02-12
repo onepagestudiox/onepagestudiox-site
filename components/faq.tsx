@@ -37,9 +37,9 @@ const faqItems = [
   },
   {
     category: "Content & Requirements",
-    question: "Can I see the templates before choosing?",
+    question: "What can I expect from the design process?",
     answer:
-      "Yes! You'll be able to browse our available templates and pick the one that fits your style. We then customize it with your business content and branding.",
+      "You share your business details, branding, and goals. We design your one-page site from scratch to match your industry and style, then plug in your content and images. We include a revision round so you can tweak until it feels right—no portfolio required, just a quick chat to get started.",
   },
 
   // Technical & Platform
@@ -190,13 +190,15 @@ export function FAQ() {
             <div className="inline-flex items-center gap-2 text-muted-foreground text-sm mb-6">
               <div className="w-8 h-px bg-border" />
               <span>Still have questions?</span>
+              <div className="w-8 h-px bg-border" />
+            </div>
+            <div className="mt-6">
               <a
                 href="mailto:onepagestudiox@outlook.com"
-                className="text-primary hover:text-primary/80 transition-colors duration-200 font-medium"
+                className="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl h-12 px-8 py-3 cursor-pointer"
               >
-                Email us!
+                Email us
               </a>
-              <div className="w-8 h-px bg-border" />
             </div>
           </div>
         </div>

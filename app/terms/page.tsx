@@ -197,10 +197,13 @@ export default function TermsPage() {
                 </p>
                 <div className="space-y-2">
                   <p className="text-muted-foreground">
-                    <strong>Email:</strong> onepagestudiox@outlook.com
-                  </p>
-                  <p className="text-muted-foreground">
-                    <strong>Phone:</strong> (647) 705-2049
+                    <strong>Email:</strong>{" "}
+                    <a
+                      href="mailto:onepagestudiox@outlook.com"
+                      className="text-primary hover:text-primary/80 underline underline-offset-2 transition-colors"
+                    >
+                      onepagestudiox@outlook.com
+                    </a>
                   </p>
                 </div>
               </div>

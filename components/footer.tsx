@@ -1,4 +1,4 @@
-import { IoCall, IoMail } from "react-icons/io5";
+import { IoMail } from "react-icons/io5";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,9 +16,9 @@ export function Footer() {
                   OnePageStudioX
                 </h3>
                 <p className="text-muted-foreground leading-relaxed max-w-md">
-                  Professional websites without the hassle. Choose a template,
-                  send your content, and go live with a clean, professional site
-                  in just 5 days.
+                  Professional websites without the hassle. Tell us about your
+                  business, send your content, and go live with a clean,
+                  professional site in just 5 days.
                 </p>
               </div>
 
@@ -30,13 +30,6 @@ export function Footer() {
                   aria-label="Email"
                 >
                   <IoMail className="w-5 h-5" />
-                </a>
-                <a
-                  href="tel:6477052049"
-                  className="w-10 h-10 bg-primary/10 hover:bg-primary/20 text-primary rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-                  aria-label="Phone"
-                >
-                  <IoCall className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -57,18 +50,10 @@ export function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#templates"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-200"
-                  >
-                    Browse Templates
-                  </a>
-                </li>
-                <li>
-                  <a
                     href="#process"
                     className="text-muted-foreground hover:text-primary transition-colors duration-200"
                   >
-                    How It Works
+                    Process
                   </a>
                 </li>
                 <li>

@@ -3,7 +3,6 @@ import { DetailedFeatureBreakdown } from "./detailed-feature-breakdown";
 import { IoDocumentSharp } from "react-icons/io5";
 import { HiBolt } from "react-icons/hi2";
 import { BsPencilFill } from "react-icons/bs";
-import { IoBarChartSharp } from "react-icons/io5";
 
 const plans = [
   {
@@ -11,8 +10,8 @@ const plans = [
     price: "$800",
     description: "Perfect for small businesses getting started online",
     features: [
-      "Choose from a pre-made template",
-      "We plug in your branding, content, and images",
+      "Custom design based on your business, branding, and goals",
+      "We design your site and plug in your content and images",
       "Connect your custom domain",
       "Mobile-optimized design",
       "One round of content and design revisions",
@@ -31,7 +30,6 @@ const plans = [
       "5-Day post launch touch up",
       "Manually optimized mobile preivew",
       "Google business profile setup/review",
-      "Analytic setup with reporting (Up to 3 months)",
     ],
     popular: true,
   },
@@ -55,13 +53,6 @@ const addOns = [
     price: "$75",
     description: "One extra round of content revisions after delivery",
     icon: <BsPencilFill />,
-  },
-  {
-    name: "Extended Vistor Reports",
-    price: "$50/month",
-    description:
-      "Keep receiving monthly visitor summaries after your included 3 months.",
-    icon: <IoBarChartSharp />,
   },
 ];
 
@@ -167,8 +158,8 @@ export function Pricing() {
             </p>
           </div>
 
-          {/* Add-Ons Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          {/* Add-Ons Grid - 3 cards centered */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16 max-w-4xl mx-auto">
             {addOns.map((addon, index) => (
               <div
                 key={addon.name}

@@ -86,9 +86,9 @@ export function DetailedFeatureBreakdown() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {[
                 {
-                  title: "Pre-Made Template Selection",
+                  title: "Custom Design From Your Input",
                   description:
-                    "Choose from our curated collection of professional templates designed for different industries. Each template is optimized for conversion and mobile responsiveness.",
+                    "Share your business details, branding, and design preferences. We design your site from scratch to match your industry and goals—optimized for conversion and mobile responsiveness.",
                 },
                 {
                   title: "Brand Integration",
@@ -168,11 +168,6 @@ export function DetailedFeatureBreakdown() {
                   title: "Google Business Profile",
                   description:
                     "Setup or review your Google Business Profile to improve local search visibility and help customers find your business on Google Maps.",
-                },
-                {
-                  title: "Analytics & Reporting",
-                  description:
-                    "Google Analytics setup with 3 months of monthly reports showing visitor behavior, traffic sources, and insights to help grow your business.",
                 },
               ].map((feature, index) => (
                 <div

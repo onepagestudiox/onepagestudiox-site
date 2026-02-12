@@ -7,9 +7,9 @@ export function Hero() {
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-muted/20 to-background" />
 
-      {/* Content */}
+      {/* Content - drops from top with bounce */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto animate-drop-bounce">
           {/* Badge */}
           <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-8">
             Professional websites in 5 days
@@ -39,17 +39,17 @@ export function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
-            Choose a template, send your content, and go live with a clean,
-            professional site.
+            Tell us about your business, send your content, and go live with a
+            clean, professional site.
           </p>
 
-          {/* CTA Button */}
+          {/* CTA Button - bounces in last */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a
-              href="#templates"
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl h-14 px-8 py-4"
+              href="#process"
+              className="animate-bounce-in-last inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl h-14 px-8 py-4"
             >
-              Browse Templates
+              Get Started
             </a>
           </div>
 

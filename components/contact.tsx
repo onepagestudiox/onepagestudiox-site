@@ -3,16 +3,7 @@
 import { useState } from "react";
 import { FaCheckSquare, FaLock } from "react-icons/fa";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
-
-const templates = [
-  "Modern Business",
-  "Creative Portfolio",
-  "Restaurant & Food",
-  "Fitness & Wellness",
-  "Professional Services",
-  "E-commerce",
-  "No preference",
-];
+import { toast } from "sonner";
 
 const plans = ["Basic Plan ($800)", "Premium Plan ($1,200)"];
 
@@ -22,16 +13,11 @@ export function Contact() {
     email: "",
     phone: "",
     businessName: "",
-    selectedTemplate: "",
     selectedPlan: "",
     businessDescription: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -48,7 +34,6 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
 
     try {
       const response = await fetch("/api/send-email", {
@@ -60,30 +45,20 @@ export function Contact() {
       });
 
       if (response.ok) {
-        setSubmitStatus({
-          type: "success",
-          message: "Thank you! We&apos;ll be in touch soon.",
-        });
+        toast.success("Thank you! We'll be in touch soon.");
         setFormData({
           fullName: "",
           email: "",
           phone: "",
           businessName: "",
-          selectedTemplate: "",
           selectedPlan: "",
           businessDescription: "",
         });
       } else {
-        setSubmitStatus({
-          type: "error",
-          message: "Something went wrong. Please try again.",
-        });
+        toast.error("Something went wrong. Please try again.");
       }
     } catch {
-      setSubmitStatus({
-        type: "error",
-        message: "Something went wrong. Please try again.",
-      });
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -111,8 +86,8 @@ export function Contact() {
               </p>
               <p className="text-lg text-muted-foreground mb-8">
                 Fill out the form and we&apos;ll reach out to kick off your
-                website. Choose a template, share your content, and we&apos;ll
-                handle the rest.
+                website. Tell us about your business, share your content, and
+                we&apos;ll handle the rest.
               </p>
 
               {/* Trust Elements */}
@@ -249,54 +224,29 @@ export function Contact() {
                   </div>
                 </div>
 
-                {/* Template and Plan Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="selectedTemplate"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Template Type
-                    </label>
-                    <select
-                      id="selectedTemplate"
-                      name="selectedTemplate"
-                      value={formData.selectedTemplate}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select a template</option>
-                      {templates.map((template) => (
-                        <option key={template} value={template}>
-                          {template}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="selectedPlan"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Plan of Choice *
-                    </label>
-                    <select
-                      id="selectedPlan"
-                      name="selectedPlan"
-                      value={formData.selectedPlan}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select a plan</option>
-                      {plans.map((plan) => (
-                        <option key={plan} value={plan}>
-                          {plan}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                {/* Plan */}
+                <div>
+                  <label
+                    htmlFor="selectedPlan"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    Plan of Choice *
+                  </label>
+                  <select
+                    id="selectedPlan"
+                    name="selectedPlan"
+                    value={formData.selectedPlan}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                  >
+                    <option value="">Select a plan</option>
+                    {plans.map((plan) => (
+                      <option key={plan} value={plan}>
+                        {plan}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 {/* Business Description */}
@@ -324,7 +274,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl h-14 px-8 py-4 text-base font-semibold"
+                    className="w-full inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl h-14 px-8 py-4 text-base font-semibold cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
@@ -354,19 +304,6 @@ export function Contact() {
                       "Get Started"
                     )}
                   </button>
-
-                  {/* Status Messages */}
-                  {submitStatus.type && (
-                    <div
-                      className={`mt-4 p-4 rounded-lg text-center ${
-                        submitStatus.type === "success"
-                          ? "bg-green-50 text-green-800 border border-green-200"
-                          : "bg-red-50 text-red-800 border border-red-200"
-                      }`}
-                    >
-                      {submitStatus.message}
-                    </div>
-                  )}
 
                   <p className="text-sm text-muted-foreground mt-4 text-center">
                     Once you submit, we&apos;ll get in touch within 24 hours to

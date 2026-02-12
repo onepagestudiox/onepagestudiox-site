@@ -1,33 +1,61 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import { useEffect, useRef, useState } from "react";
 
 const processSteps = [
   {
     number: "1",
-    title: "Choose a Template That Fits Your Style",
+    title: "Tell Us About Your Business",
     description:
-      "We offer a curated selection of clean, high-converting website templates tailored for small businesses. You simply pick the design that feels right for your brand — and don't worry, we're here to help if you're not sure what works best for your industry or goals.",
+      "Share the essential details about your business so we can craft a website that perfectly fits your brand. We’ll guide you through what to provide, from your services and style preferences to branding elements and goals, making it simple and stress-free.",
   },
   {
     number: "2",
-    title: "Send Us Your Content (We'll Guide You)",
+    title: "We Design Your Website",
     description:
-      "Once you've selected a template, we'll send you a simple content checklist — no jargon, no overwhelm. You just share your logo, text, business info, photos (if any), and social links. We can even help clean up or rewrite your content if needed, to make sure it's sharp and professional.",
+      "Our team will create a custom one-page website tailored to your business, style, and goals. We focus on clean design, mobile optimization, and a layout that converts visitors into customers.",
   },
   {
     number: "3",
-    title: "We Build & Customize Your Site",
+    title: "Review & Feedback",
     description:
-      "Our team gets to work bringing your page to life. We plug in your content, adjust colors and fonts to match your brand, and ensure everything looks perfect across desktop and mobile. You'll get a preview to review — and one round of revision if needed.",
+      "Preview your website draft and let us know what you think. We’ll make adjustments based on your feedback to ensure the final result matches your vision perfectly.",
   },
   {
     number: "4",
-    title: "Launch in 5 Business Days or Less",
+    title: "Launch & Deliver",
     description:
-      "Once you're happy with the result, we connect your domain, test everything, and launch your site. Need it faster? We offer 48-hour delivery as an add-on. From start to finish, we handle the tech so you can focus on running your business.",
+      "Once you’re happy with the final version, we connect it to your domain, test everything, and launch your site. From start to finish, we handle the technical aspects so you can focus on running your business.",
   },
 ];
 
 export function Process() {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [triggeredCards, setTriggeredCards] = useState<boolean[]>([false, false, false, false]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    cardRefs.current.forEach((el, index) => {
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setTriggeredCards((prev) => {
+              const next = [...prev];
+              next[index] = true;
+              return next;
+            });
+          }
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -5% 0px" }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
   return (
     <section
       id="process"
@@ -49,20 +77,25 @@ export function Process() {
               How It Works
             </h2>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
-              Get your professional website up and running in just 5 days.
               Here&apos;s our simple, transparent process.
             </p>
           </div>
 
           {/* Process Steps Grid - Original Simple Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-            {processSteps.map((step) => (
+            {processSteps.map((step, index) => (
               <div
                 key={step.number}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
                 className={cn(
                   "group relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-5 sm:p-6 lg:p-7",
                   "shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]",
-                  "hover:border-primary/30 hover:bg-card/80"
+                  "hover:border-primary/30 hover:bg-card/80",
+                  /* Tablet/mobile: alternate slide-in from left/right, triggered when card scrolls into view */
+                  index % 2 === 0 ? "process-slide-in-left" : "process-slide-in-right",
+                  triggeredCards[index] && "process-card-in-view",
                 )}
               >
                 {/* Step Number with subtle enhancement */}
@@ -98,19 +131,21 @@ export function Process() {
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Curated selection of professional templates
+                            Provide all your branding and business details in
+                            one place
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Tailored for small businesses
+                            Highlight your services, target audience, and goals
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Expert guidance in template selection
+                            Receive guidance on what info is most important for
+                            a high-converting website
                           </span>
                         </li>
                       </>
@@ -120,19 +155,19 @@ export function Process() {
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Simple content checklist provided
+                            Fully customized design for your brand
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            No jargon or technical overwhelm
+                            Mobile-friendly and high-converting layout
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Content cleanup and rewriting assistance
+                            Professional, clean, and modern style
                           </span>
                         </li>
                       </>
@@ -142,25 +177,19 @@ export function Process() {
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Professional team builds your site
+                            Preview and provide feedback on your website
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Brand colors and fonts integrated
+                            Small tweaks and adjustments applied quickly
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Mobile and desktop optimized
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
-                          <span className="text-xs text-foreground/80 leading-relaxed">
-                            Preview and revision included
+                            Ensures your website fully represents your brand
                           </span>
                         </li>
                       </>
@@ -170,25 +199,19 @@ export function Process() {
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            5 business days or less delivery
+                            Website published and live for your audience
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            Domain connection included
+                            Domain connection handled for you
                           </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
                           <span className="text-xs text-foreground/80 leading-relaxed">
-                            48-hour delivery available as add-on
-                          </span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="flex-shrink-0 w-1.5 h-1.5 bg-primary/60 rounded-full mt-2" />
-                          <span className="text-xs text-foreground/80 leading-relaxed">
-                            We handle all technical aspects
+                            Guidance provided for ongoing website management
                           </span>
                         </li>
                       </>
@@ -208,10 +231,10 @@ export function Process() {
             </div>
             <div className="mt-6">
               <a
-                href="#templates"
+                href="#contact"
                 className="inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-105 shadow-lg hover:shadow-xl h-12 px-8 py-3 cursor-pointer"
               >
-                Browse Templates
+                Get Started
               </a>
             </div>
           </div>
