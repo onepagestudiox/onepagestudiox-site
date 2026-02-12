@@ -67,7 +67,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-24 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />

@@ -60,7 +60,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="py-24 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-muted/20 to-background relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
@@ -159,7 +159,7 @@ export function Pricing() {
           </div>
 
           {/* Add-Ons Grid - 3 cards centered */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {addOns.map((addon, index) => (
               <div
                 key={addon.name}

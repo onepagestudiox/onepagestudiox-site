@@ -103,7 +103,7 @@ export function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-24 bg-background relative overflow-hidden">
+    <section id="faq" className="py-20 bg-background relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />

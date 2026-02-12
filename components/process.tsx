@@ -59,7 +59,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="py-20 sm:py-24 lg:py-32 bg-background relative overflow-hidden"
+      className="py-20 bg-background relative overflow-hidden"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
